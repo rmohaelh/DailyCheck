@@ -1,5 +1,6 @@
 
-/* Configuración general */
+
+/* CONFIGURACIÓN GENERAL */
 * {
   box-sizing: border-box;
 }
@@ -7,97 +8,354 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #080808;
+  background-color: #080b12;
   color: #ffffff;
 }
-/* Contenedor principal */
+
 .app {
-  max-width: 1100px;
+  max-width: 1250px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 35px;
 }
 
-/* Cabecera */
+/* CABECERA */
 .header {
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 .header h1 {
-  font-size: 32px;
-  color: #2563eb;
+  font-size: 36px;
+  color: #60a5fa;
   margin-bottom: 8px;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
 .header p {
-  color: #aaaaaa;
+  color: #a1a1aa;
   font-size: 16px;
 }
 
-/* Sección del tiempo */
+/* SECCIÓN DEL TIEMPO */
 .weather {
   background: linear-gradient(135deg, #2563eb, #38bdf8);
   color: white;
-  padding: 35px;
-  border-radius: 18px;
-  margin-bottom: 30px;
+  padding: 40px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  transition: background 0.5s ease;
 }
 
 .weather h2 {
   margin-top: 0;
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .weather h3 {
-  font-size: 52px;
+  font-size: 64px;
   margin: 20px 0;
+  font-weight: 800;
+  letter-spacing: -2px;
 }
 
 .weather p {
   font-size: 17px;
 }
 
-/* Información del día */
+/* INFORMACIÓN DEL DÍA */
 .information h2 {
-  font-size: 23px;
-  margin-bottom: 20px;
+  font-size: 27px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: -0.5px;
 }
 
-/* Distribución de las tarjetas */
+/* TARJETAS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
 }
 
-/* Tarjetas individuales */
 .card {
-  background-color: #181818;
-  color: white;
-  padding: 25px;
-  border-radius: 14px;
-  border: 1px solid #292929;
+  padding: 32px;
+  border-radius: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  min-height: 245px;
+  cursor: pointer;
 }
 
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* COLORES DE LAS TARJETAS */
+.air-card {
+  background: linear-gradient(145deg, #1b302b, #17231f);
+  border-color: #315b49;
+}
+
+.uv-card {
+  background: linear-gradient(145deg, #382d1d, #292216);
+  border-color: #66502b;
+}
+
+.wind-card {
+  background: linear-gradient(145deg, #202d43, #1a2232);
+  border-color: #354c70;
+}
+
+.rain-card {
+  background: linear-gradient(145deg, #1d3040, #192633);
+  border-color: #31546c;
+}
+
+/* PARTE SUPERIOR */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.card-icon {
+  font-size: 35px;
+}
+
+.card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 13px;
+  border-radius: 20px;
+}
+
+/* TÍTULOS */
 .card h3 {
-  margin-top: 0;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 800;
+  margin: 0 0 15px;
+  letter-spacing: -0.4px;
+}
+
+/* VALORES */
+.card-value {
+  color: #ffffff;
+  font-size: 49px;
+  font-weight: 800;
+  margin: 10px 0 5px;
+  letter-spacing: -2px;
+}
+
+.card-unit {
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* DESCRIPCIONES */
+.card-description {
+  color: #d1d5db;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 7px 0;
+}
+
+.card-extra {
+  color: #aebdcc;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
+/* ETIQUETAS DE VALORACIÓN */
+.card-status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
-.card p {
-  color: #aaaaaa;
+/* VISTA DETALLADA */
+.detail {
+  background: #151c29;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 25px;
 }
 
-/* Adaptación a móviles */
-@media (max-width: 600px) {
+.detail h2 {
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.detail p {
+  color: #cbd5e1;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* FONDOS SEGÚN EL TIEMPO */
+.weather.sunny {
+  background: linear-gradient(135deg, #f59e0b, #ea580c);
+}
+
+.weather.cloudy {
+  background: linear-gradient(135deg, #475569, #64748b);
+}
+
+.weather.rainy {
+  background: linear-gradient(135deg, #1e3a8a, #334155);
+}
+
+.weather.snowy {
+  background: linear-gradient(135deg, #64748b, #bae6fd);
+  color: #102033;
+}
+
+.weather.cold {
+  background: linear-gradient(135deg, #0e7490, #1e40af);
+}
+
+.weather.hot {
+  background: linear-gradient(135deg, #dc2626, #f97316);
+}
+
+/* ADAPTACIÓN A MÓVILES */
+@media (max-width: 700px) {
   .app {
-    padding: 18px;
+    padding: 20px;
   }
 
   .cards {
     grid-template-columns: 1fr;
   }
 
-  .weather h3 {
+  .card {
+    min-height: 210px;
+    padding: 25px;
+  }
+
+  .card-value {
     font-size: 42px;
   }
+
+  .weather {
+    padding: 28px;
+  }
+
+  .weather h3 {
+    font-size: 50px;
+  }
 }
+
+/* BUSCADOR */
+.search-section {
+  margin-bottom: 30px;
+}
+
+.search-section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+}
+
+.search-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #151c29;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
+
+.search-form input:focus {
+  border-color: #60a5fa;
+}
+
+.search-form button,
+.search-results button {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search-form button:hover,
+.search-results button:hover {
+  background: #1d4ed8;
+}
+
+.search-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.error-message {
+  color: #fca5a5;
+  margin-top: 12px;
+}
+
+/* INFORMACIÓN AMPLIADA */
+.detail {
+  position: relative;
+  line-height: 1.7;
+}
+
+.detail-close {
+  float: right;
+  background: #334155;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+.detail-close:hover {
+  background: #475569;
+}
+
+.detail h2 {
+  padding-right: 90px;
+}
+
+@media (max-width: 600px) {
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form button {
+    width: 100%;
+  }
+}
+
+
